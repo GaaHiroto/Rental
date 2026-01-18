@@ -21,10 +21,12 @@ body{
 }
 
 .container{
-    width:9090%;
+    width:100%;
     max-width:500px;
-    padding:20px;
+    padding:16px;
+    box-sizing:border-box;
 }
+    
 h1{text-align:center}
 .card{
     background:rgba(255,255,255,0.08);
@@ -49,12 +51,21 @@ select,input,button{
 button{
     background:#00ffd5;
     font-weight:bold;
+    min-height:48px;
+    font-size:16px;
     cursor:pointer;
+}
+input, select{
+    font-size:16px;
+}
+@media (max-width:360px){
+  h1{font-size:20px}
+  h3{font-size:16px}
 }
 .menu-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
+    grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+    gap:12px;
 }
 .menu-card{
     background:rgba(255,255,255,0.1);
@@ -292,3 +303,4 @@ function pesanWA(){
 </script>
 </body>
 </html>
+
