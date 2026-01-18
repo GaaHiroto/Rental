@@ -7,82 +7,91 @@
 
 <style>
 body{
-  font-family:"Segoe UI",sans-serif;
-  background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-    url("bg-ps.jpg");
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
-  color:white;
-  margin:0;
+    font-family:Segoe UI,sans-serif;
+    background:
+      linear-gradient(
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.75)
+      ),
+      url("https://wallpapercat.com/w/full/e/9/0/1261540-2040x1148-desktop-hd-the-playstation-background.jpg") center/cover no-repeat fixed;
+    color:white;
+    display:flex;
+    justify-content:center;
+    min-height:100vh;
 }
 
 .container{
-  max-width:500px;
-  margin:auto;
-  padding:20px;
+    width:9090%;
+    max-width:500px;
+    padding:20px;
 }
-
-.glass{
-  background:rgba(255,255,255,.1);
-  backdrop-filter:blur(12px);
-  border-radius:18px;
-  padding:16px;
-  margin-bottom:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
-}
-
 h1{text-align:center}
-
-.menu-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+.card{
+    background:rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:16px;
+    margin-bottom:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
-
-.menu-card{
-  background:rgba(255,255,255,.12);
-  border-radius:14px;
-  padding:10px;
-  text-align:center;
+.menu-item{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    font-size:14px;
 }
-
-.menu-card img{
-  width:100%;
-  height:110px;
-  object-fit:cover;
-  border-radius:10px;
+select,input,button{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border-radius:8px;
+    border:none;
 }
-
-.menu-card h4{margin:6px 0 2px;font-size:14px}
-.menu-card p{font-size:12px;color:#ccc}
-
-input,select,button{
-  width:100%;
-  padding:10px;
-  margin-top:8px;
-  border:none;
-  border-radius:10px;
-}
-
 button{
-  background:#00ffd5;
-  font-weight:bold;
-  cursor:pointer;
+    background:#00ffd5;
+    font-weight:bold;
+    cursor:pointer;
 }
-
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+.menu-card{
+    background:rgba(255,255,255,0.1);
+    border-radius:14px;
+    padding:10px;
+    text-align:center;
+}
+.menu-card img{
+    width:100%;
+    height:110px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.menu-card h4{
+    margin:6px 0 2px;
+    font-size:14px;
+}
+.menu-card p{
+    font-size:12px;
+    color:#ccc;
+}
+.menu-card input{
+    margin-top:6px;
+}
 .total{
-  text-align:center;
-  font-size:18px;
-  font-weight:bold;
-  margin-top:10px;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    margin-top:12px;
 }
+small{color:#ccc}
 
 .marquee{
+  width:100%;
   overflow:hidden;
   white-space:nowrap;
-  background:rgba(255,255,255,.15);
+  background:rgba(255,255,255,0.12);
   backdrop-filter:blur(10px);
   border-radius:12px;
   padding:8px 0;
@@ -92,21 +101,16 @@ button{
 .marquee span{
   display:inline-block;
   padding-left:100%;
-  animation:jalan 15s linear infinite;
-  color:#00ffd5;
+  animation: marquee 15s linear infinite;
   font-weight:bold;
+  color:#00ffd5;
 }
 
-@keyframes jalan{
-  from{transform:translateX(0)}
-  to{transform:translateX(-100%)}
+@keyframes marquee{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
-.wa-btn{
-  background:#25D366;
-  color:white;
-  font-size:16px;
-}
 </style>
 </head>
 
@@ -114,22 +118,29 @@ button{
 <div class="container">
 
 <div class="marquee">
-<span>🎮 Rental PS Ibu Mini • 🍜 Jajanan Murah • 💳 QRIS • 😄 Main Puas!</span>
+  <span>
+    🎮 Rental PS Ibu Mini • 🔥 PS4 10K/Jam • PS3 4K/Jam • 🍜 Jajan Murah • 💳 QRIS Ready • 😄 Main Puas!
+  </span>
 </div>
 
 <h1>🎮 Rental PS Ibu Mini</h1>
 
-<div class="glass">
-<h3>Main PS</h3>
-<select id="ps">
-  <option value="4000">PS3 - Rp4.000/jam</option>
-  <option value="10000">PS4 - Rp10.000/jam</option>
-</select>
-<input type="number" id="jam" placeholder="Jumlah jam">
+<div class="card">
+    <div class="menu-item"><span>PS3</span><span>Rp4.000 / jam</span></div>
+    <div class="menu-item"><span>PS4</span><span>Rp10.000 / jam</span></div>
 </div>
 
-<div class="glass">
-<h3>🍟 Makanan & Minuman</h3>
+<div class="card">
+<h3>Main PS</h3>
+<select id="ps">
+    <option value="4000">PS3</option>
+    <option value="10000">PS4</option>
+</select>
+<input type="number" id="jam" placeholder="Jumlah jam">
+
+
+<div class="card">
+<h3>🍟 Makanan</h3>
 <div class="menu-grid">
 
 <div class="menu-card">
@@ -139,9 +150,64 @@ button{
 </div>
 
 <div class="menu-card">
+<img src="https://i.imgur.com/9V7KZpR.jpg">
+<h4>Sosis</h4><p>Rp 1.000</p>
+<input type="number" value="0" data-harga="1000">
+</div>
+
+<div class="menu-card">
+<img src="https://i.imgur.com/jzZ6QZb.jpg">
+<h4>Cilor</h4><p>Rp 1.000</p>
+<input type="number" value="0" data-harga="1000">
+</div>
+
+<div class="menu-card">
+<img src="https://i.imgur.com/qX5yQ0X.jpg">
+<h4>Makaroni</h4><p>Rp 1.000</p>
+<input type="number" value="0" data-harga="1000">
+</div>
+
+<div class="menu-card">
+<img src="https://i.imgur.com/xP0D3hT.jpg">
+<h4>Mie Sakura</h4><p>Rp 3.000</p>
+<input type="number" value="0" data-harga="3000">
+</div>
+
+<div class="menu-card">
+<img src="https://i.imgur.com/Rp9B4Dg.jpg">
+<h4>Sakura Seblak</h4><p>Rp 3.000</p>
+<input type="number" value="0" data-harga="3000">
+</div>
+
+<div class="menu-card">
+<img src="https://i.imgur.com/VKZpHk1.jpg">
+<h4>Mie Aceh</h4><p>Rp 4.000</p>
+<input type="number" value="0" data-harga="4000">
+</div>
+
+<div class="menu-card">
+<img src="https://i.imgur.com/5C2y1yO.jpg">
+<h4>Topping Ayam</h4><p>Rp 5.000</p>
+<input type="number" value="0" data-harga="5000">
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<h3>🥤 Minuman</h3>
+<div class="menu-grid">
+
+<div class="menu-card">
 <img src="https://i.imgur.com/t3ZxZbR.jpg">
 <h4>Es Cekek</h4><p>Rp 1.000</p>
 <input type="number" value="0" data-harga="1000">
+</div>
+
+<div class="menu-card">
+<img src="https://i.imgur.com/kF4rY9e.jpg">
+<h4>Es Matcha</h4><p>Rp 3.000</p>
+<input type="number" value="0" data-harga="3000">
 </div>
 
 <div class="menu-card">
@@ -161,46 +227,68 @@ button{
 
 <button onclick="hitung()">💰 Hitung Total</button>
 <div class="total" id="total"></div>
-
-<a id="waLink" target="_blank" style="display:none">
-<button class="wa-btn">💬 Pesan via WhatsApp</button>
-</a>
-
+<small>*Bayar QRIS sesuai total</small>
+<button onclick="pesanWA()">📲 Pesan via WhatsApp</button>
 </div>
 
 <script>
 function hitung(){
   let total = 0;
-  let pesan = "Halo kak, saya mau pesan:%0A%0A";
 
-  const jam = Number(jamEl.value || 0);
-  const hargaPS = Number(ps.value);
-  if(jam>0){
-    total += jam*hargaPS;
-    pesan += `🎮 Main PS ${jam} jam%0A`;
-  }
+
+  const hargaPS = Number(document.getElementById("ps").value);
+  const jam = Number(document.getElementById("jam").value || 0);
+
+  total += jam * hargaPS;
 
   document.querySelectorAll("[data-harga]").forEach(i=>{
-    if(i.value>0){
-      const nama=i.parentElement.querySelector("h4").innerText;
-      total+=i.value*i.dataset.harga;
-      pesan+=`🍽 ${nama} x${i.value}%0A`;
+    total += Number(i.value) * Number(i.dataset.harga);
+  });
+
+  document.getElementById("total").innerText =
+    "Total Bayar: Rp " + total.toLocaleString("id-ID");
+
+}
+</script><script>
+function hitung(){
+  let total = 0;
+
+  const hargaPS = Number(document.getElementById("ps").value);
+  const jam = Number(document.getElementById("jam").value || 0);
+
+  total += jam * hargaPS;
+
+  document.querySelectorAll("[data-harga]").forEach(i=>{
+    total += Number(i.value) * Number(i.dataset.harga);
+  });
+
+  document.getElementById("total").innerText =
+    "Total Bayar: Rp " + total.toLocaleString("id-ID");
+
+  window.totalBayar = total; // simpan total
+}
+
+function pesanWA(){
+  const ps = document.getElementById("ps").selectedOptions[0].text;
+  const jam = document.getElementById("jam").value || 0;
+
+  let pesan = `Halo, saya mau pesan:\n`;
+  pesan += `🎮 ${ps} - ${jam} jam\n`;
+
+  document.querySelectorAll("[data-harga]").forEach(i=>{
+    if(i.value > 0){
+      const nama = i.parentElement.querySelector("h4").innerText;
+      pesan += `🍽️ ${nama} x${i.value}\n`;
     }
   });
 
-  totalEl.innerText="Total Bayar: Rp "+total.toLocaleString("id-ID");
-  pesan+=`%0A💰 Total: Rp ${total.toLocaleString("id-ID")}`;
+  pesan += `\n💰 Total: Rp ${window.totalBayar?.toLocaleString("id-ID") || 0}`;
 
-  waLink.href=`https://wa.me/6285693929837?text=${pesan}`;
-  waLink.style.display="block";
+  const noWA = "6285693929837"; // GANTI NO INI
+  const url = `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`;
+
+  window.open(url, "_blank");
 }
-
-const jamEl=document.getElementById("jam");
-const ps=document.getElementById("ps");
-const totalEl=document.getElementById("total");
-const waLink=document.getElementById("waLink");
 </script>
-
 </body>
 </html>
-
