@@ -231,7 +231,6 @@ small{color:#ccc}
 <button onclick="hitung()">💰 Hitung Total</button>
 <div class="total" id="total"></div>
 <small>*Bayar QRIS sesuai total</small>
-
 </div>
 <div id="waBox" style="display:none;margin-top:12px;">
   <a id="waLink" target="_blank">
@@ -251,10 +250,8 @@ small{color:#ccc}
 </div>
 
 <script>
-<script>
 function hitung(){
   let total = 0;
-
   const hargaPS = Number(document.getElementById("ps").value);
   const jam = Number(document.getElementById("jam").value || 0);
   total += jam * hargaPS;
@@ -269,7 +266,6 @@ function hitung(){
       total += Number(i.value) * Number(i.dataset.harga);
       detail += `🍽 ${nama} x${i.value}\n`;
     }
-  });
 
   detail += `\n💰 Total: Rp ${total.toLocaleString("id-ID")}`;
 
@@ -322,6 +318,7 @@ function hitung(){
 </script>
 </body>
 </html>
+
 
 
 
