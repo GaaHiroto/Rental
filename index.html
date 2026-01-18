@@ -7,24 +7,26 @@
 
 <style>
 body{
-    font-family:Segoe UI,sans-serif;
+body{
+    font-family: "Segoe UI", sans-serif;
     background:
-      linear-gradient(
-        rgba(0,0,0,0.75),
-        rgba(0,0,0,0.75)
-      ),
-    background url("bg-ps.jpg") center/cover no-repeat fixed;
-    <img src="bg-ps.jpg">
-    color:white;
-    display:flex;
-    justify-content:center;
-    min-height:100vh;
+      linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+      url("bg-ps.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
 }
 
 .container{
-    width:9090%;
+    width:100%;
     max-width:500px;
     padding:20px;
+}
 }
 h1{text-align:center}
 .card{
@@ -233,13 +235,44 @@ small{color:#ccc}
 </div>
 
 <script>
+<script>
 function hitung(){
   let total = 0;
 
   const hargaPS = Number(document.getElementById("ps").value);
   const jam = Number(document.getElementById("jam").value || 0);
+  total += jam * hargaPS;
+
+  let detail = `Halo kak, saya mau pesan:\n\n`;
+
+  detail += `🎮 Main PS: ${jam} jam\n`;
+
+  document.querySelectorAll("[data-harga]").forEach(i=>{
+    if(i.value > 0){
+      const nama = i.parentElement.querySelector("h4").innerText;
+      total += Number(i.value) * Number(i.dataset.harga);
+      detail += `🍽 ${nama} x${i.value}\n`;
+    }
+  });
+
+  detail += `\n💰 Total: Rp ${total.toLocaleString("id-ID")}`;
+
+  document.getElementById("total").innerText =
+    "Total Bayar: Rp " + total.toLocaleString("id-ID");
+
+  const wa = "6285693929837";
+  const url = `https://wa.me/${wa}?text=${encodeURIComponent(detail)}`;
+  document.getElementById("waLink").href = url;
+}
+</script>
 
   total += jam * hargaPS;
+
+    <a id="waLink" target="_blank">
+  <button style="background:#25D366;margin-top:10px;">
+    💬 Pesan via WhatsApp
+  </button>
+</a>
 
   document.querySelectorAll("[data-harga]").forEach(i=>{
     total += Number(i.value) * Number(i.dataset.harga);
@@ -251,6 +284,7 @@ function hitung(){
 </script>
 </body>
 </html>
+
 
 
 
